@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<!--==================================================================
+//
+// Web site: Rick and Morty Characters
+// Web page: Home
+// Course:   SI 379
+// Homework: Group Project
+// Author: Jennifer Jung, Timmy Huang
+// Description:
+//   ????????????
+// 
+//=================================================================-->
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rick and Morty Characters</title>
+
+    <!-- External Style sheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- UNUSED Favicon link -->
+    <link rel="shortcut icon" href="willbereplace.jpg" type="image/x-icon">
+
+    <!-- UNUSED jQuery --> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+
+
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Rick and Morty Characters</h1>
+    </header>
+
+    <!-- Search and Filter Section -->
+    <section id="search-filter">
+        <input type="text" id="search-input" placeholder="Search characters">
+    </section>
+    
+    <!-- Summary for the result-->
+    <section id="summary">
+        <p id="summary-text"></p>
+    </section>
+
+
+    <section id="character-container">
+        <!-- Detail Table (Left Column) -->
+        <div id="detail-table">
+            <h2>Character Details (Detail Table)</h2>
+            <div id="character-details"></div>
+        </div>
+
+        <!-- Master Table (Right column) -->
+        <div id="master-table">
+            <h2>Character List (Master Table)</h2>
+            <ul id="character-summary-list"></ul>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <div id="character-list"></div>
+        <div id="character-details"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; FALL2024-SI379-Jennifer&Timmy</p>
+    </footer>
+
+    <!-- external javascript -->
+    <script src="script.js"></script>
+</body>
+
+</html>

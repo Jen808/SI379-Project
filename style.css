@@ -1,0 +1,230 @@
+/* ==================================================================
+//
+// Web site: Rick and Morty Characters
+// Web page: Home
+// Course:   SI 379
+// Homework: Group Project
+// Author: Jennifer Jung, Timmy Huang
+// Description:
+//   ????????????
+// 
+//================================================================= */
+
+
+
+
+/* ==================================================================
+// color
+//================================================================= */
+
+
+
+
+:root {
+
+    --color-colombia-blue: #9BDDFF;
+    --color-dark: #213A57;
+    --color-medium: #0B6477;
+    --color-background: #DCF5FA;
+    --color-background-deep: #F0FCFE;
+    --color-hover: #04A0BC;
+    --color-green: #25A18E;
+    --color-lightgreen: #7AE582;
+    --color-blue: #00A5CF;
+
+}
+
+
+/* ==================================================================
+// universial
+//================================================================= */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ==================================================================
+// header 
+//================================================================= */
+
+
+header {
+    background-color: #20232a;
+    color: #61dafb;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+/* ==================================================================
+// Search / Summary of result
+//================================================================= */
+
+#search-filter {
+    padding: 20px;
+    text-align: center;
+    background-color: #f3f3f3;
+}
+
+#search-input {
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#summary {
+    text-align: center;
+    padding: 10px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* ==================================================================
+// Master Table
+//================================================================= */
+
+
+#character-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#detail-table {
+    flex: 2;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+#master-table {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+#character-summary-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#character-summary-list li {
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    background-color: #e6e6e6;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+#character-summary-list li:hover {
+    background-color: #d4d4d4;
+}
+
+
+
+
+
+/* ==================================================================
+// Detail Table
+//================================================================= */
+
+
+
+#detail-table {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+#detail-table h2,
+#detail-table h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#character-details p {
+    margin: 8px 0;
+    font-size: 1rem;
+}
+
+/* ==================================================================
+// List of characters
+//================================================================= */
+
+#character-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.character-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.character-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.character-card h3 {
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+.character-card:hover {
+    transform: translateY(-5px);
+}
+
+/* ==================================================================
+// Footer
+//================================================================= */
+
+
+footer {
+    background-color: #20232a;
+    color: #61dafb;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
