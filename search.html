@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Search and Filter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Rick and Morty Characters</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">Master-Detail View</a>
+        <a href="search.html" class="active">Search View</a>
+        <a href="detail.html">Detail View</a>
+        <a href="summary.html">Summary View</a>
+    </nav>
+
+    <!-- Search Container -->
+    <section id="search-container">
+        <input type="text" id="search-input" placeholder="Search characters">
+        <select id="name-filter" class="search-name">
+            <option value="all">All</option>
+            <option value="A-I">A-I</option>
+            <option value="J-Z">J-Z</option>
+        </select>
+        <table id="search-results">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Number of Episodes</th>
+                </tr>
+            </thead>
+            <tbody id="search-results-body">
+                <!-- Dynamically filled by script.js -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Footer -->
+    <footer>&copy; FALL2024-SI379-Jennifer&Timmy</footer>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>

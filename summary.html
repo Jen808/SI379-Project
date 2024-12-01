@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Summary View - Rick and Morty Characters</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Rick and Morty Characters</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Master-Detail View</a>
+        <a href="search.html">Search View</a>
+        <a href="detail.html">Detail View</a>
+        <a href="summary.html" class="active">Summary View</a>
+    </nav>
+    <section id="summary-container">
+        <h2>Summary</h2>
+        <div id="summary-data">
+            <p>Total Characters: <span id="total-characters"></span></p>
+            <p>Alive: <span id="alive-characters"></span></p>
+            <p>Dead: <span id="dead-characters"></span></p>
+            <p>Unknown: <span id="unknown-characters"></span></p>
+        </div>
+        <div id="species-breakdown">
+            <h3>Species Breakdown</h3>
+            <ul></ul>
+        </div>
+        <div id="episode-statistics">
+            <p>Min Episodes: <span id="min-episodes"></span></p>
+            <p>Max Episodes: <span id="max-episodes"></span></p>
+            <p>Average Episodes: <span id="average-episodes"></span></p>
+        </div>
+    </section>
+    <footer>&copy; FALL2024-SI379-Jennifer&Timmy</footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
