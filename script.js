@@ -1,3 +1,15 @@
+/* ==================================================================
+//
+// Web site: Rick and Morty Characters
+// Web page: None - Javscript
+// Course:   SI 379
+// Homework: Group Project
+// Author: Jennifer Jung, Timmy Huang
+// Description:
+//   Javascript which applies for all four pages.
+// 
+//================================================================= */
+
 document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;
     if (path.includes('index.html')) {
@@ -14,12 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
 // ================================
 // Main View Initialization 
 // ================================
-
 function initializeMainView() {
-    const characterList = document.getElementById('character-summary-list');
-    // const summaryText = document.getElementById('summary-text');
-    const masterTable = document.getElementById('character-summary-list');
-    const detailTable = document.getElementById('character-details');
+    const characterList = document.querySelector('#character-summary-list');
+    const masterTable = document.querySelector('#character-summary-list');
+    const detailTable = document.querySelector('#character-details');
     let characters = [];
 
     // Fetch character data
@@ -29,9 +39,8 @@ function initializeMainView() {
             characters = data.results;
             displayMasterTable(characters);
             displayCharacterList(characters);
-            displayDefaultDetailMessage(); // Display default message initially
+            displayDefaultDetailMessage();
 
-            // updateSummary(characters.length);
         })
         .catch(error => console.error('Error loading JSON file:', error));
 
@@ -108,9 +117,9 @@ function initializeMainView() {
 
 
 function initializeSearchView() {
-    const searchInput = document.getElementById('search-input');
-    const nameFilter = document.getElementById('name-filter');
-    const searchResultsBody = document.getElementById('search-results-body');
+    const searchInput = document.querySelector('#search-input');
+    const nameFilter = document.querySelector('#name-filter');
+    const searchResultsBody = document.querySelector('#search-results-body');
     let characters = [];
 
     // ====== Fetch Character Data ======
@@ -185,11 +194,11 @@ function initializeSearchView() {
 
 
 function initializeDetailView() {
-    const detailSearchInput = document.getElementById('detail-search-input');
-    const nameFilter = document.getElementById('name-filter');
-    const episodeFilter = document.getElementById('episode-filter');
-    const statusFilter = document.getElementById('status-filter');
-    const detailResults = document.getElementById('detail-results');
+    const detailSearchInput = document.querySelector('#detail-search-input');
+    const nameFilter = document.querySelector('#name-filter');
+    const episodeFilter = document.querySelector('#episode-filter');
+    const statusFilter = document.querySelector('#status-filter');
+    const detailResults = document.querySelector('#detail-results');
     let characters = [];
 
 
@@ -309,7 +318,10 @@ function initializeSummaryView() {
 
             // ====== Total Characters ======
             // Calculates and displays the total number of characters
-            document.getElementById('total-characters').textContent = characters.length;
+            // document.getElementById('total-characters').textContent = characters.length;
+            // 'total-characters'.textContent = characters.length;
+            document.querySelector('#total-characters').textContent = characters.length;
+
 
 
             // ====== Status Breakdown ======
@@ -320,9 +332,13 @@ function initializeSummaryView() {
                 if (statusCounts[status] !== undefined) statusCounts[status]++;
             });
 
-            document.getElementById('alive-characters').textContent = statusCounts.alive;
-            document.getElementById('dead-characters').textContent = statusCounts.dead;
-            document.getElementById('unknown-characters').textContent = statusCounts.unknown;
+            // document.getElementById('alive-characters').textContent = statusCounts.alive;
+            'alive-characters'.textContent = statusCounts.alive;
+            // document.getElementById('dead-characters').textContent = statusCounts.dead;
+            'dead-characters'.textContent = statusCounts.dead;
+            // document.getElementById('unknown-characters').textContent = statusCounts.unknown;
+            'unknown-characters'.textContent = statusCounts.unknown;
+
 
 
             // ====== Species Breakdown ======
@@ -332,7 +348,12 @@ function initializeSummaryView() {
                 speciesCounts[char.species] = (speciesCounts[char.species] || 0) + 1;
             });
 
-            const speciesBreakdown = document.getElementById('species-breakdown');
+            // const speciesBreakdown = document.getElementById('species-breakdown');
+            // const speciesBreakdown = 'species-breakdown';
+            // const speciesBreakdown = 'species-breakdown'.value;
+            const speciesBreakdown = document.querySelector('#species-breakdown');
+
+
             for (const [species, count] of Object.entries(speciesCounts)) {
                 const li = document.createElement('li');
                 li.textContent = `${species}: ${count}`;
@@ -343,9 +364,17 @@ function initializeSummaryView() {
             // ====== Episode Statistics ======
             // Calculates and displays min, max, and average number of episodes per character
             const episodes = characters.map(char => char.episode.length);
-            document.getElementById('min-episodes').textContent = Math.min(...episodes);
-            document.getElementById('max-episodes').textContent = Math.max(...episodes);
-            document.getElementById('average-episodes').textContent = (
+            // document.getElementById('min-episodes').textContent = Math.min(...episodes);
+            document.querySelector('#min-episodes').textContent = Math.min(...episodes);
+
+            // 'min-episodes'.textContet = Math.min(...episodes);
+            // document.getElementById('max-episodes').textContent = Math.max(...episodes);
+            document.querySelector('#max-episodes').textContent = Math.max(...episodes);
+
+            // document.getElementById('average-episodes').textContent = (
+            //     episodes.reduce((sum, ep) => sum + ep, 0) / episodes.length
+            // ).toFixed(2);
+            document.querySelector('#average-episodes').textContent = (
                 episodes.reduce((sum, ep) => sum + ep, 0) / episodes.length
             ).toFixed(2);
         })
