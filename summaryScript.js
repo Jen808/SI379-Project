@@ -42,7 +42,7 @@ function initializeSummaryView() {
             const statusBreakdown = document.querySelector('#status-breakdown');
 
 
-            for (const [status, count] of Object.entries(statusCounts).sort()) {
+            for (const [status, count] of Object.entries(statusCounts).sort(([,a], [,b]) => b - a)) {
                 const li = document.createElement('li');
                 li.textContent = `${status}: ${count}`;
                 statusBreakdown.appendChild(li);
@@ -60,8 +60,7 @@ function initializeSummaryView() {
             const speciesBreakdown = document.querySelector('#species-breakdown');
 
 
-            for (const [species, count] of Object.entries(speciesCounts).sort()) {
-                const li = document.createElement('li');
+            for (const [species, count] of Object.entries(speciesCounts).sort(([,a], [,b]) => b - a)) {                const li = document.createElement('li');
                 li.textContent = `${species}: ${count}`;
                 speciesBreakdown.appendChild(li);
             }
@@ -78,7 +77,7 @@ function initializeSummaryView() {
 
             const typeBreakdown = document.querySelector('#type-breakdown');
 
-            for (const [type, count] of Object.entries(typeCounts).sort()) {
+            for (const [type, count] of Object.entries(typeCounts).sort(([,a], [,b]) => b - a)) {
                 const li = document.createElement('li');
                 li.textContent = `${type}: ${count}`;
                 typeBreakdown.appendChild(li);
@@ -93,7 +92,7 @@ function initializeSummaryView() {
 
             const genderBreakdown = document.querySelector('#gender-breakdown');
 
-            for (const [gender, count] of Object.entries(genderCounts).sort()) {
+            for (const [gender, count] of Object.entries(genderCounts).sort(([,a], [,b]) => b - a)) {
                 const li = document.createElement('li');
                 li.textContent = `${gender}: ${count}`;
                 genderBreakdown.appendChild(li);
@@ -108,7 +107,7 @@ function initializeSummaryView() {
 
             const originBreakdown = document.querySelector('#origin-breakdown');
 
-            for (const [origin, count] of Object.entries(originCounts).sort()) {
+            for (const [origin, count] of Object.entries(originCounts).sort(([,a], [,b]) => b - a)) {
                 const li = document.createElement('li');
                 li.textContent = `${origin}: ${count}`;
                 originBreakdown.appendChild(li);
@@ -123,7 +122,7 @@ function initializeSummaryView() {
 
             const locationBreakdown = document.querySelector('#location-breakdown');
 
-            for (const [location, count] of Object.entries(locationCounts).sort()) {
+            for (const [location, count] of Object.entries(locationCounts).sort(([,a], [,b]) => b - a)) {
                 const li = document.createElement('li');
                 li.textContent = `${location}: ${count}`;
                 locationBreakdown.appendChild(li);
