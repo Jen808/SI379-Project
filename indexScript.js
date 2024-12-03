@@ -71,6 +71,9 @@ function initializeMainView() {
             <p><strong>ID:</strong> ${characterDetail.id}</p>
             <p><strong>Status:</strong> ${characterDetail.status}</p>
             <p><strong>Species:</strong> ${characterDetail.species}</p>
+            <p><strong>Type:</strong> ${characterDetail.type}</p>
+            <p><strong>Location:</strong> ${characterDetail.location.name}</p>
+            <p><strong>Origin:</strong> ${characterDetail.origin.name}</p>
             <p><strong>Number of Episodes:</strong> ${characterDetail.episode_count}</p>
         `;
     }
