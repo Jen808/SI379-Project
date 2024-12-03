@@ -6,7 +6,7 @@
 // Homework: Group Project
 // Author: Jennifer Jung, Timmy Huang
 // Description:
-//   Javascript which applies for all four pages.
+//   Javascript which applies for the main view page which includes master and detail data
 // 
 //================================================================= */
 
@@ -29,7 +29,6 @@ function initializeMainView() {
         })
         .catch(error => console.error('Error loading JSON file:', error));
 
-    console.log("here");
     fetch('detail.json')
         .then(response => response.json())
         .then(data => {

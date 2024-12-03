@@ -1,12 +1,12 @@
 /* ==================================================================
 //
 // Web site: Rick and Morty Characters
-// Web page: index.html - Javscript
+// Web page: summary.html - Javscript
 // Course:   SI 379
 // Homework: Group Project
 // Author: Jennifer Jung, Timmy Huang
 // Description:
-//   Javascript which applies for all four pages.
+//   Javascript which applies for the summary view page
 // 
 //================================================================= */
 
@@ -16,9 +16,6 @@
 
 // ====== Fetch Character Data ======
 function initializeSummaryView() {
-    const masterData = [];
-    const detailData = [];
-
     fetch('detail.json')
         .then(response => response.json())
         .then(data => {
@@ -26,8 +23,6 @@ function initializeSummaryView() {
 
             // ====== Total Characters ======
             // Calculates and displays the total number of characters
-            // document.getElementById('total-characters').textContent = characters.length;
-            // 'total-characters'.textContent = characters.length;
             document.querySelector('#total-characters').textContent = characters.length;
 
 
@@ -41,14 +36,11 @@ function initializeSummaryView() {
             
             const statusBreakdown = document.querySelector('#status-breakdown');
 
-
             for (const [status, count] of Object.entries(statusCounts).sort(([,a], [,b]) => b - a)) {
                 const li = document.createElement('li');
                 li.textContent = `${status}: ${count}`;
                 statusBreakdown.appendChild(li);
             }
-
-
 
             // ====== Species Breakdown ======
             // Calculates and displays the count of characters by species

@@ -1,12 +1,12 @@
 /* ==================================================================
 //
 // Web site: Rick and Morty Characters
-// Web page: index.html - Javscript
+// Web page: detail.html - Javscript
 // Course:   SI 379
 // Homework: Group Project
 // Author: Jennifer Jung, Timmy Huang
 // Description:
-//   Javascript which applies for all four pages.
+//   Javascript which applies for the detail search filter view page
 // 
 //================================================================= */
 
@@ -14,10 +14,6 @@
 // ================================
 // Detail View Initialization 
 // ================================
-
-// ====== Variables and Data Fetch ======
-// Fetches character data and sets up filters for the detail views
-
 
 function initializeDetailView() {
     const detailFilterInput = document.querySelector('#detail-filter-input');
@@ -39,6 +35,7 @@ function initializeDetailView() {
                 .then(response => response.json())
                 .then(data => {
                     detailData = data.results;
+                    // Combine master and detail data
                     characters = detailData.map(detail => {
                         const master = masterData.find(master => master.id === detail.id);
                         return {
@@ -83,6 +80,7 @@ function initializeDetailView() {
     }
 
     // ====== Display Detailed Results ======
+    // Renders the detailed character information
     function displayDetailResults(characters) {
         detailResults.innerHTML = '';
         characters.forEach(character => {
@@ -131,6 +129,7 @@ function initializeDetailView() {
     }
 
     // ====== Highlight Search Terms ======
+    // Highlights the search term in the text
     function highlightSearchTerms(text, searchTerm) {
         if (!searchTerm) {
             return text;
