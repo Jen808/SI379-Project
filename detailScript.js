@@ -135,7 +135,6 @@ function initializeDetailView() {
         if (!searchTerm) {
             return text;
         }
-        const escapedSearchTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
         return text.replace(new RegExp(searchTerm, 'gi'), match =>
             `<span class="highlight">${match}</span>`
