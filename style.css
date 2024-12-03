@@ -340,20 +340,11 @@ nav button:hover {
     color: #555;
 }
 
-/* #detail-filters input[type="text"],
-#detail-filters select {
-    font-size: 16px;
-    border: 1px solid #ddd;
-    background-color: #f9f9f9;
-    transition: border-color 0.3s, background-color 0.3s;
+.highlight {
+    background-color: var(--color-blue);
+    color: white;
+    padding: 2px;
 }
-
-#detail-filters input[type="text"]:focus,
-#detail-filters select:focus {
-    border-color: var(--color-blue);
-    background-color: #fff;
-    outline: none;
-} */
 
 /* ==================================================================
 // Summary View Layout

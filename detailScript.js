@@ -20,10 +20,8 @@
 
 
 function initializeDetailView() {
+    const detailFilterInput = document.querySelector('#detail-filter-input');
     const detailSearchInput = document.querySelector('#detail-search-input');
-    const nameFilter = document.querySelector('#name-filter');
-    const episodeFilter = document.querySelector('#episode-filter');
-    const statusFilter = document.querySelector('#status-filter');
     const detailResults = document.querySelector('#detail-results');
     let characters = [];
     let detailData = [];
@@ -57,98 +55,93 @@ function initializeDetailView() {
     setupFilters();
 
     // ====== Setup Filters ======
-    // Initializes event listeners for search, name range, episode range, and status filtering
+    // Initializes event listeners for search filtering
     function setupFilters() {
+        detailFilterInput.addEventListener('input', filterAndDisplay);
         detailSearchInput.addEventListener('input', filterAndDisplay);
-        nameFilter.addEventListener('change', filterAndDisplay);
-        episodeFilter.addEventListener('change', filterAndDisplay);
-        statusFilter.addEventListener('change', filterAndDisplay);
-        filterAndDisplay(); // Initial display
     }
 
 
     // ====== Filter and Display ======
-    // Filters the characters based on search term, name range, episode range, and status, then displays results
+    // Filters the characters based on search term then displays results
     function filterAndDisplay() {
-        const searchTerm = detailSearchInput.value.toLowerCase();
-        const nameRange = nameFilter.value;
-        const episodeRange = episodeFilter.value;
-        const status = statusFilter.value;
+        const searchTerm = detailFilterInput.value.toLowerCase();
 
         let filteredCharacters = characters;
 
-
-        // Filter by name range
-        if (nameRange !== 'all') {
-            filteredCharacters = filteredCharacters.filter(character => {
-                const firstChar = character.name.charAt(0).toUpperCase();
-                return nameRange === 'A-I'
-                    ? firstChar >= 'A' && firstChar <= 'I'
-                    : firstChar >= 'J' && firstChar <= 'Z';
-            });
-        }
-
-        // Filter by episodes range
-        if (episodeRange !== 'all') {
-            filteredCharacters = filteredCharacters.filter(character => {
-                const episodeCount = character.episode.length;
-                switch (episodeRange) {
-                    case '>50':
-                        return episodeCount > 50;
-                    case '40-50':
-                        return episodeCount >= 40 && episodeCount <= 50;
-                    case '30-40':
-                        return episodeCount >= 30 && episodeCount <= 40;
-                    case '20-30':
-                        return episodeCount >= 20 && episodeCount <= 30;
-                    case '10-20':
-                        return episodeCount >= 10 && episodeCount <= 20;
-                    case '&lt;10':
-                        return episodeCount < 10;
-                }
-            });
-        }
-
-        // Filter by status
-        if (status !== 'all') {
-            filteredCharacters = filteredCharacters.filter(character =>
-                character.status.toLowerCase() === status
-            );
-        }
-
-
         // Filter by search term
         filteredCharacters = filteredCharacters.filter(character =>
-            character.name.toLowerCase().includes(searchTerm)
+            character.name.toLowerCase().includes(searchTerm) || 
+            character.species.toLowerCase().includes(searchTerm) ||
+            character.status.toLowerCase().includes(searchTerm) ||
+            character.type.toLowerCase().includes(searchTerm) ||
+            character.location.name.toLowerCase().includes(searchTerm) ||
+            character.origin.name.toLowerCase().includes(searchTerm)
         );
 
         displayDetailResults(filteredCharacters);
     }
 
     // ====== Display Detailed Results ======
-    // Displays the filtered characters in rows with detailed informati
     function displayDetailResults(characters) {
         detailResults.innerHTML = '';
         characters.forEach(character => {
             const card = document.createElement('div');
             card.classList.add('character-card-detail');
-            card.innerHTML = `
-                <img src="${character.image}" alt="${character.name}">
-                <div>
-                    <h3>${character.name}</h3>
-                    <p><strong>ID:</strong> ${character.id}</p>
-                    <p><strong>Status:</strong> ${character.status}</p>
-                    <p><strong>Species:</strong> ${character.species}</p>
-                    <p><strong>Type:</strong> ${character.type || 'Normal'}</p>
-                    <p><strong>Location:</strong> ${character.location.name}</p>
-                    <p><strong>Origin:</strong> ${character.origin.name}</p>
-                    <p><strong>Number of Episodes:</strong> ${character.episode_count}</p>
+            
+            // Create the elements properly
+            const img = document.createElement('img');
+            img.src = character.image;
+            img.alt = character.name;
+            
+            const infoDiv = document.createElement('div');
+            
+            const name = document.createElement('h3');
+            name.innerHTML = highlightSearchTerms(character.name, detailSearchInput.value);
+            infoDiv.appendChild(name);
 
-                </div>
-            `;
+            const details = [
+                ['ID', character.id],
+                ['Status', character.status],
+                ['Species', character.species],
+                ['Type', character.type || 'Normal'],
+                ['Location', character.location.name],
+                ['Origin', character.origin.name],
+                ['Number of Episodes', character.episode_count]
+            ];
+
+            // Build the info section
+            details.forEach(([label, value]) => {
+                const p = document.createElement('p');
+                const strong = document.createElement('strong');
+                const text = document.createElement('span');
+                strong.textContent = `${label}: `;
+                p.appendChild(strong);
+                text.innerHTML = highlightSearchTerms(String(value), detailSearchInput.value);
+                p.appendChild(text);
+                
+                infoDiv.appendChild(p);
+            });
+
+            // Assemble the card
+            card.appendChild(img);
+            card.appendChild(infoDiv);
             detailResults.appendChild(card);
         });
     }
+
+    // ====== Highlight Search Terms ======
+    function highlightSearchTerms(text, searchTerm) {
+        if (!searchTerm) {
+            return text;
+        }
+        const escapedSearchTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+        return text.replace(new RegExp(searchTerm, 'gi'), match =>
+            `<span class="highlight">${match}</span>`
+        );
+    }
+
 }
 
 initializeDetailView();
