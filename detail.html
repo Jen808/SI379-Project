@@ -28,38 +28,41 @@
     <!-- Navigation Bar -->
     <nav>
         <a href="index.html">Master-Detail View</a>
-        <a href="search.html">Search View</a>
-        <a href="detail.html" class="active">Detail View</a>
+        <a href="mainSearchFilter.html">Main Search Filter View</a>
+        <a href="detail.html" class="active">Detail Search Filter View</a>
         <a href="summary.html">Summary View</a>
     </nav>
     <section id="detail-view-container">
         <div id="detail-filters">
-            <input type="text" id="detail-search-input" placeholder="Search characters">
-            <select id="name-filter" class="filter-dropdown">
-                <option value="all">All</option>
-                <option value="A-I">A-I</option>
-                <option value="J-Z">J-Z</option>
-            </select>
-            <select id="episode-filter" class="filter-dropdown">
-                <option value="all">All Episodes</option>
-                <option value="%gt;50">>50</option>
-                <option value="40-50">40-50</option>
-                <option value="30-40">30-40</option>
-                <option value="20-30">20-30</option>
-                <option value="10-20">10-20</option>
-                <option value="%lt;10">Less than 10</option>
-            </select>
-            <select id="status-filter" class="filter-dropdown">
-                <option value="all">All Status</option>
-                <option value="alive">Alive</option>
-                <option value="dead">Dead</option>
-                <option value="unknown">Unknown</option>
-            </select>
+            <input type="text" id="detail-search-input" class="detail-text-input" placeholder="Search data">
+            <input type="text" id="detail-filter-input" class="detail-text-input" placeholder="Filter data">
+            <div>
+                <select id="name-filter" class="filter-dropdown">
+                    <option value="all">All</option>
+                    <option value="A-I">A-I</option>
+                    <option value="J-Z">J-Z</option>
+                </select>
+                <select id="episode-filter" class="filter-dropdown">
+                    <option value="all">All Episodes</option>
+                    <option value="%gt;50">>50</option>
+                    <option value="40-50">40-50</option>
+                    <option value="30-40">30-40</option>
+                    <option value="20-30">20-30</option>
+                    <option value="10-20">10-20</option>
+                    <option value="%lt;10">Less than 10</option>
+                </select>
+                <select id="status-filter" class="filter-dropdown">
+                    <option value="all">All Status</option>
+                    <option value="alive">Alive</option>
+                    <option value="dead">Dead</option>
+                    <option value="unknown">Unknown</option>
+                </select>
+            </div>
         </div>
         <div id="detail-results"></div>
     </section>
     <footer>&copy; FALL2024-SI379-Jennifer&Timmy</footer>
-    <script src="script.js"></script>
+    <script src="detailScript.js"></script>
 </body>
 
 </html>

@@ -27,30 +27,51 @@
 
     <nav>
         <a href="index.html">Master-Detail View</a>
-        <a href="search.html">Search View</a>
-        <a href="detail.html">Detail View</a>
+        <a href="mainSearchFilter.html">Main Search Filter View</a>
+        <a href="detail.html">Detail Search Filter View</a>
         <a href="summary.html" class="active">Summary View</a>
     </nav>
     <section id="summary-container">
         <h2>Summary</h2>
-        <div id="summary-data">
+        <div id="summary-data" >
             <p>Total Characters: <span id="total-characters"></span></p>
-            <p>Alive: <span id="alive-characters"></span></p>
-            <p>Dead: <span id="dead-characters"></span></p>
-            <p>Unknown: <span id="unknown-characters"></span></p>
         </div>
-        <div id="species-breakdown">
+        <div id="summary-status" class="summary-section">
+            <h3>Status Breakdown</h3>
+            <ul id="status-breakdown"></ul>
+        </div>
+        <div id="summary-species" class="summary-section">
             <h3>Species Breakdown</h3>
-            <ul></ul>
+            <ul id="species-breakdown"></ul>
         </div>
-        <div id="episode-statistics">
-            <p>Min Episodes: <span id="min-episodes"></span></p>
-            <p>Max Episodes: <span id="max-episodes"></span></p>
-            <p>Average Episodes: <span id="average-episodes"></span></p>
+        <div id="summary-type" class="summary-section">
+            <h3>Type Breakdown</h3>
+            <ul id="type-breakdown"></ul>
+        </div>
+        <div id="summary-gender" class="summary-section">
+            <h3>Gender Breakdown</h3>
+            <ul id="gender-breakdown"></ul>
+        </div>
+        <div id="summary-origin" class="summary-section">
+            <h3>Origin Breakdown</h3>
+            <ul id="origin-breakdown"></ul>
+        </div>
+        <div id="summary-location" class="summary-section">
+            <h3>Location Breakdown</h3>
+            <ul id="location-breakdown"></ul>
+        </div>
+        <div id="episode-statistics" class="summary-section">
+            <h3>Episode Breakdown</h3>
+            <div>
+                <p>Min Episode Appearences: <span id="min-episodes"></span></p>
+                <p>Max Episode Appearences: <span id="max-episodes"></span></p>
+                <p>Average Episode Appearences: <span id="average-episodes"></span></p>
+
+            </div>
         </div>
     </section>
     <footer>&copy; FALL2024-SI379-Jennifer&Timmy</footer>
-    <script src="script.js"></script>
+    <script src="summaryScript.js"></script>
 </body>
 
 </html>

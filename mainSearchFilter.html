@@ -29,32 +29,25 @@
     <!-- Navigation -->
     <nav>
         <a href="index.html">Master-Detail View</a>
-        <a href="search.html" class="active">Search View</a>
-        <a href="detail.html">Detail View</a>
+        <a href="mainSearchFilter.html" class="active">Main Search Filter View</a>
+        <a href="detail.html">Detail Search Filter View</a>
         <a href="summary.html">Summary View</a>
     </nav>
-
-    <!-- Search Container -->
-    <section id="search-container">
-        <input type="text" id="search-input" placeholder="Search characters">
-        <select id="name-filter" class="search-name">
-            <option value="all">All</option>
-            <option value="A-I">A-I</option>
-            <option value="J-Z">J-Z</option>
-        </select>
-        <table id="search-results">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Number of Episodes</th>
-                </tr>
-            </thead>
-            <tbody id="search-results-body">
-                <!-- Dynamically filled by script.js -->
-            </tbody>
-        </table>
+    <section id="detail-view-container">
+        <input type="text" id="detail-search-input" class="detail-text-input" placeholder="Search data">
+        <input type="text" id="detail-filter-input" class="detail-text-input" placeholder="Filter data">
     </section>
+    <section id="character-container">
+        <div id="master-table">
+            <h2>Master Table</h2>
+            <ul id="character-summary-list"></ul>
+        </div>
+        <div id="detail-table">
+            <h2>Detail Table</h2>
+            <div id="character-details"></div>
+        </div>
+    </section>
+    
 
     <!-- Footer -->
     <footer>&copy; FALL2024-SI379-Jennifer&Timmy</footer>
