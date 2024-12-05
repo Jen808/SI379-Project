@@ -25,8 +25,8 @@ function initializeMainSearchFilterView() {
     let selectedCharacterId = null;
 
     // Load filter and search inputs from local storage
-    detailFilterInput.value = localStorage.getItem('filterInput') || '';
-    detailSearchInput.value = localStorage.getItem('searchInput') || '';
+    detailFilterInput.value = localStorage.getItem('mainFilterInput') || '';
+    detailSearchInput.value = localStorage.getItem('mainSearchInput') || '';
 
     // Fetch master data
     fetch('master.json')
@@ -63,11 +63,11 @@ function initializeMainSearchFilterView() {
     }
 
     function storeFilterInput() {
-        localStorage.setItem('filterInput', detailFilterInput.value);
+        localStorage.setItem('mainFilterInput', detailFilterInput.value);
     }
 
     function storeSearchInput() {
-        localStorage.setItem('searchInput', detailSearchInput.value);
+        localStorage.setItem('mainSearchInput', detailSearchInput.value);
     }
 
     // ====== Filter and Display ======

@@ -24,8 +24,8 @@ function initializeDetailView() {
     let masterData = [];
 
     // Load filter and search inputs from local storage
-    detailFilterInput.value = localStorage.getItem('filterInput') || '';
-    detailSearchInput.value = localStorage.getItem('searchInput') || '';
+    detailFilterInput.value = localStorage.getItem('detailFilterInput') || '';
+    detailSearchInput.value = localStorage.getItem('detailSearchInput') || '';
 
 
     // ====== Fetch Character Data ======
@@ -66,11 +66,11 @@ function initializeDetailView() {
 
 
     function storeFilterInput() {
-        localStorage.setItem('filterInput', detailFilterInput.value);
+        localStorage.setItem('detailFilterInput', detailFilterInput.value);
     }
 
     function storeSearchInput() {
-        localStorage.setItem('searchInput', detailSearchInput.value);
+        localStorage.setItem('detailSearchInput', detailSearchInput.value);
     }
 
     // ====== Filter and Display ======
