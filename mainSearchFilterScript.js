@@ -24,6 +24,10 @@ function initializeMainSearchFilterView() {
     let characters = [];
     let selectedCharacterId = null;
 
+    // Load filter and search inputs from local storage
+    detailFilterInput.value = localStorage.getItem('filterInput') || '';
+    detailSearchInput.value = localStorage.getItem('searchInput') || '';
+
     // Fetch master data
     fetch('master.json')
         .then(response => response.json())
@@ -54,6 +58,16 @@ function initializeMainSearchFilterView() {
     function setupFilters() {
         detailFilterInput.addEventListener('input', filterAndDisplay);
         detailSearchInput.addEventListener('input', filterAndDisplay);
+        detailFilterInput.addEventListener('input', storeFilterInput);
+        detailSearchInput.addEventListener('input', storeSearchInput);
+    }
+
+    function storeFilterInput() {
+        localStorage.setItem('filterInput', detailFilterInput.value);
+    }
+
+    function storeSearchInput() {
+        localStorage.setItem('searchInput', detailSearchInput.value);
     }
 
     // ====== Filter and Display ======
